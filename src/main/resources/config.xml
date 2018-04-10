@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration [
+        <!ELEMENT configuration (config)>
+        <!ELEMENT config (className*)>
+        <!ELEMENT className (#PCDATA)>
+        <!ATTLIST className id ID #REQUIRED>
+        ]>
+<configuration>
+    <config>
+        <className id="fileLoggerFactory">com.yibo.factory.FileLoggerFactory</className>
+        <className id="databaseLoggerFactory">com.yibo.factory.DatabaseLoggerFactory</className>
+    </config>
+</configuration>
