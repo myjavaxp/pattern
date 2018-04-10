@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class AbstractFactoryTest {
     @Test
-    public void testAbstractFactory(){
+    public void testAbstractFactory() throws Exception {
         SkinFactory skinFactory = (SummerSkinFactory)XMLUtil.getBean("summerSkinFactory");
         assert skinFactory != null;
         Button button = skinFactory.getButton();

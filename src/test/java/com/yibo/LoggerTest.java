@@ -16,14 +16,19 @@ public class LoggerTest {
 
     @Test
     public void testXML() {
-        LoggerFactory loggerFactory = (LoggerFactory) XMLUtil.getBean("fileLoggerFactory");
+        LoggerFactory loggerFactory = null;
+        try {
+            loggerFactory = (LoggerFactory) XMLUtil.getBean("fileLoggerFactory");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (loggerFactory != null) {
             Logger logger = loggerFactory.getLogger();
             logger.writeLog();
         }
     }
     @Test
-    public void testFactory(){
+    public void testFactory() throws Exception {
         LoggerFactory loggerFactory = (LoggerFactory) XMLUtil.getBean("databaseLoggerFactory");
         if (loggerFactory != null) {
             loggerFactory.writeLog();
