@@ -1,4 +1,4 @@
-package com.yibo.Bean;
+package com.yibo.bean;
 
 import java.io.Serializable;
 

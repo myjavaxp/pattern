@@ -1,6 +1,6 @@
 package com.yibo;
 
-import com.yibo.Bean.Person;
+import com.yibo.bean.Person;
 import org.junit.Test;
 
 import java.util.ArrayList;
