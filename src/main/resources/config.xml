@@ -9,5 +9,7 @@
     <config>
         <className id="fileLoggerFactory">com.yibo.factory.FileLoggerFactory</className>
         <className id="databaseLoggerFactory">com.yibo.factory.DatabaseLoggerFactory</className>
+        <className id="springSkinFactory">com.yibo.abstractfactory.impl.SpringSkinFactory</className>
+        <className id="summerSkinFactory">com.yibo.abstractfactory.impl.SummerSkinFactory</className>
     </config>
 </configuration>
