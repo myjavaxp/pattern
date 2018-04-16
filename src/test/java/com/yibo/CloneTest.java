@@ -1,8 +1,6 @@
 package com.yibo;
 
-import com.yibo.clone.Attachment;
-import com.yibo.clone.WeekLog;
-import com.yibo.clone.WeeklyLog;
+import com.yibo.clone.*;
 import org.junit.Test;
 
 import java.util.Date;
@@ -47,5 +45,20 @@ public class CloneTest {
         //比较附件
         assert log_new != null;
         System.out.println("附件是否相同？ " + (log_previous.getAttachment() == log_new.getAttachment()));
+    }
+    @Test
+    public void testPrototypeManager(){
+        PrototypeManager prototypeManager=PrototypeManager.getPrototypeManager();
+        OfficialDocument document1,document2,document3,document4;
+        document1=prototypeManager.getOfficialDocument("far");
+        document1.display();
+        document2=prototypeManager.getOfficialDocument("far");
+        document2.display();
+        System.out.println(document1==document2);
+        document3=prototypeManager.getOfficialDocument("srs");
+        document3.display();
+        document4=prototypeManager.getOfficialDocument("srs");
+        document4.display();
+        System.out.println(document3==document4);
     }
 }
