@@ -1,6 +1,7 @@
 package com.yibo;
 
 import com.yibo.bean.Person;
+import com.yibo.bean.PersonFactory;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -45,5 +46,11 @@ public class PersonTest {
             return 0;
         });
         list.forEach(System.out::println);//lambda表达式循环打印数组
+    }
+    @Test
+    public void testPersonFactory(){
+        PersonFactory<Person> personFactory=Person::new;
+        Person person = personFactory.create("韩梅梅", "22");
+        System.out.println(person);
     }
 }
