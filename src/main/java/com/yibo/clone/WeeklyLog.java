@@ -1,11 +1,14 @@
 package com.yibo.clone;
 
+import com.google.common.base.MoreObjects;
+
 import java.util.Date;
 
 public class WeeklyLog implements Cloneable {
     private String name;
     private Date date;
     private String content;
+    private Attachment attachment;
 
     public String getName() {
         return name;
@@ -31,6 +34,14 @@ public class WeeklyLog implements Cloneable {
         this.content = content;
     }
 
+    public Attachment getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(Attachment attachment) {
+        this.attachment = attachment;
+    }
+
     @Override
     public WeeklyLog clone() {
         Object object;
@@ -45,10 +56,11 @@ public class WeeklyLog implements Cloneable {
 
     @Override
     public String toString() {
-        return "WeeklyLog{" +
-                "name='" + name + '\'' +
-                ", date=" + date +
-                ", content='" + content + '\'' +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("name", name)
+                .add("date", date)
+                .add("content", content)
+                .add("attachment", attachment.toString())
+                .toString();
     }
 }
