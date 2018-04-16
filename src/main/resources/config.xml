@@ -10,6 +10,9 @@
         <className id="fileLoggerFactory">com.yibo.factory.FileLoggerFactory</className>
         <className id="databaseLoggerFactory">com.yibo.factory.DatabaseLoggerFactory</className>
         <className id="springSkinFactory">com.yibo.abstractfactory.impl.SpringSkinFactory</className>
+        <className id="angelBuilder">com.yibo.buiderpattern.AngelBuilder</className>
+        <className id="devilBuilder">com.yibo.buiderpattern.DevilBuilder</className>
+        <className id="heroBuilder">com.yibo.buiderpattern.HeroBuilder</className>
         <className id="summerSkinFactory">com.yibo.abstractfactory.impl.SummerSkinFactory</className>
     </config>
 </configuration>
