@@ -4,15 +4,16 @@
         <!ELEMENT config (className*)>
         <!ELEMENT className (#PCDATA)>
         <!ATTLIST className id ID #REQUIRED>
+        <!ATTLIST className class CDATA #REQUIRED>
         ]>
 <configuration>
     <config>
-        <className id="fileLoggerFactory">com.yibo.factory.FileLoggerFactory</className>
-        <className id="databaseLoggerFactory">com.yibo.factory.DatabaseLoggerFactory</className>
-        <className id="springSkinFactory">com.yibo.abstractfactory.impl.SpringSkinFactory</className>
-        <className id="angelBuilder">com.yibo.buiderpattern.AngelBuilder</className>
-        <className id="devilBuilder">com.yibo.buiderpattern.DevilBuilder</className>
-        <className id="heroBuilder">com.yibo.buiderpattern.HeroBuilder</className>
-        <className id="summerSkinFactory">com.yibo.abstractfactory.impl.SummerSkinFactory</className>
+        <className id="fileLoggerFactory" class="com.yibo.factory.FileLoggerFactory"/>
+        <className id="databaseLoggerFactory" class="com.yibo.factory.DatabaseLoggerFactory"/>
+        <className id="springSkinFactory" class="com.yibo.abstractfactory.impl.SpringSkinFactory"/>
+        <className id="angelBuilder" class="com.yibo.buiderpattern.AngelBuilder"/>
+        <className id="devilBuilder" class="com.yibo.buiderpattern.DevilBuilder"/>
+        <className id="heroBuilder" class="com.yibo.buiderpattern.HeroBuilder"/>
+        <className id="summerSkinFactory" class="com.yibo.abstractfactory.impl.SummerSkinFactory"/>
     </config>
 </configuration>

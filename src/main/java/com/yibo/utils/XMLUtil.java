@@ -17,7 +17,7 @@ public class XMLUtil {
         if (null == element) {
             throw new NoSuchBeanException("没有名字为:" + className + "的类");
         }
-        String name = element.getFirstChild().getNodeValue();
+        String name = element.getAttribute("class");
         Class<?> c = Class.forName(name);
         return c.newInstance();
     }
