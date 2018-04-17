@@ -2,9 +2,10 @@
 <!DOCTYPE configuration [
         <!ELEMENT configuration (config)>
         <!ELEMENT config (bean*)>
-        <!ELEMENT bean (#PCDATA)>
+        <!ELEMENT bean (property*)>
         <!ATTLIST bean id ID #REQUIRED>
         <!ATTLIST bean class CDATA #REQUIRED>
+        <!ELEMENT property (#PCDATA)>
         ]>
 <configuration>
     <config>
