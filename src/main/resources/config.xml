@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration [
         <!ELEMENT configuration (config)>
-        <!ELEMENT config (className*)>
-        <!ELEMENT className (#PCDATA)>
-        <!ATTLIST className id ID #REQUIRED>
-        <!ATTLIST className class CDATA #REQUIRED>
+        <!ELEMENT config (bean*)>
+        <!ELEMENT bean (#PCDATA)>
+        <!ATTLIST bean id ID #REQUIRED>
+        <!ATTLIST bean class CDATA #REQUIRED>
         ]>
 <configuration>
     <config>
-        <className id="fileLoggerFactory" class="com.yibo.factory.FileLoggerFactory"/>
-        <className id="databaseLoggerFactory" class="com.yibo.factory.DatabaseLoggerFactory"/>
-        <className id="springSkinFactory" class="com.yibo.abstractfactory.impl.SpringSkinFactory"/>
-        <className id="angelBuilder" class="com.yibo.buiderpattern.AngelBuilder"/>
-        <className id="devilBuilder" class="com.yibo.buiderpattern.DevilBuilder"/>
-        <className id="heroBuilder" class="com.yibo.buiderpattern.HeroBuilder"/>
-        <className id="summerSkinFactory" class="com.yibo.abstractfactory.impl.SummerSkinFactory"/>
+        <bean id="fileLoggerFactory" class="com.yibo.factory.FileLoggerFactory"/>
+        <bean id="databaseLoggerFactory" class="com.yibo.factory.DatabaseLoggerFactory"/>
+        <bean id="springSkinFactory" class="com.yibo.abstractfactory.impl.SpringSkinFactory"/>
+        <bean id="angelBuilder" class="com.yibo.buiderpattern.AngelBuilder"/>
+        <bean id="devilBuilder" class="com.yibo.buiderpattern.DevilBuilder"/>
+        <bean id="heroBuilder" class="com.yibo.buiderpattern.HeroBuilder"/>
+        <bean id="summerSkinFactory" class="com.yibo.abstractfactory.impl.SummerSkinFactory"/>
     </config>
 </configuration>
