@@ -11,13 +11,17 @@ import org.junit.Test;
 public class AbstractFactoryTest {
     @Test
     public void testAbstractFactory() throws Exception {
-        SkinFactory skinFactory = (SummerSkinFactory)XMLUtil.getBean("summerSkinFactory");
-        assert skinFactory != null;
+        SkinFactory skinFactory = (SummerSkinFactory) XMLUtil.getBean("summerSkinFactory");
         Button button = skinFactory.getButton();
         ComboBox comboBox = skinFactory.getComboBox();
         TextField textField = skinFactory.getTextField();
         button.display();
         comboBox.display();
         textField.display();
+    }
+
+    @Test
+    public void testXMLUtil() throws Exception {
+        XMLUtil.getBeanNameList().forEach(System.out::println);
     }
 }
