@@ -8,6 +8,8 @@ public class Person implements Serializable {
     private String number;
 
     public Person() {
+        name="默认名字";
+        number="0";
     }
 
     public Person(String name, String number) {
