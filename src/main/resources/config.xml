@@ -16,5 +16,6 @@
         <bean id="devilBuilder" class="com.yibo.buiderpattern.DevilBuilder"/>
         <bean id="heroBuilder" class="com.yibo.buiderpattern.HeroBuilder"/>
         <bean id="summerSkinFactory" class="com.yibo.abstractfactory.impl.SummerSkinFactory"/>
+        <bean id="operationAdapter" class="com.yibo.adapt.OperationAdapter"/>
     </config>
 </configuration>
