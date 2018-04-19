@@ -7,7 +7,7 @@ public class QuickSort {
     }
 
     private void sort(int[] array, int p, int r) {
-        int q = 0;
+        int q;
         if (p < r) {
             q = partition(array, p, r);
             sort(array, p, q - 1);
