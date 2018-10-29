@@ -1,9 +1,8 @@
 package com.yibo.clone;
 
-import com.google.common.base.MoreObjects;
-
 import java.io.*;
 import java.util.Date;
+import java.util.StringJoiner;
 
 public class WeekLog implements Serializable {
     private static final long serialVersionUID = 1593086963993765593L;
@@ -44,23 +43,24 @@ public class WeekLog implements Serializable {
         this.content = content;
     }
 
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("attachment", attachment)
-                .add("name", name)
-                .add("date", date)
-                .add("content", content)
-                .toString();
-    }
     public WeekLog deepClone() throws IOException, ClassNotFoundException, OptionalDataException {
-        ByteArrayOutputStream bao=new ByteArrayOutputStream();
-        ObjectOutputStream oos=new ObjectOutputStream(bao);
+        ByteArrayOutputStream bao = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bao);
         oos.writeObject(this);
 
         //将对象从流中取出
-        ByteArrayInputStream bis=new  ByteArrayInputStream(bao.toByteArray());
-        ObjectInputStream ois=new  ObjectInputStream(bis);
+        ByteArrayInputStream bis = new ByteArrayInputStream(bao.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
         return (WeekLog) ois.readObject();
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", WeekLog.class.getSimpleName() + "[", "]")
+                .add("attachment=" + attachment)
+                .add("name='" + name + "'")
+                .add("date=" + date)
+                .add("content='" + content + "'")
+                .toString();
     }
 }

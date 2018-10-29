@@ -1,8 +1,7 @@
 package com.yibo.clone;
 
-import com.google.common.base.MoreObjects;
-
 import java.util.Date;
+import java.util.StringJoiner;
 
 public class WeeklyLog implements Cloneable {
     private String name;
@@ -56,11 +55,11 @@ public class WeeklyLog implements Cloneable {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("name", name)
-                .add("date", date)
-                .add("content", content)
-                .add("attachment", attachment.toString())
+        return new StringJoiner(", ", WeeklyLog.class.getSimpleName() + "[", "]")
+                .add("name='" + name + "'")
+                .add("date=" + date)
+                .add("content='" + content + "'")
+                .add("attachment=" + attachment)
                 .toString();
     }
 }
