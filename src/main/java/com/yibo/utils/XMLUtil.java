@@ -26,6 +26,20 @@ public class XMLUtil {
         return c.newInstance();
     }
 
+    public static <T> T getBean(String beanName, Class<T> clazz) throws Exception {
+        Document document = getDocument();
+        Element element = document.getElementById(beanName);
+        if (null == element) {
+            throw new NoSuchBeanException("没有名字为:" + beanName + "的类");
+        }
+        String name = element.getAttribute("class");
+        Class<?> c = Class.forName(name);
+        if (clazz == c) {
+            return clazz.newInstance();
+        }
+        throw new NoSuchBeanException("没有类型为:" + clazz.getSimpleName() + "的类");
+    }
+
     private static Document getDocument() throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
