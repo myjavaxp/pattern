@@ -17,7 +17,7 @@ public class StaticFactoryTest {
         Product product = StaticFactory.getProduct("A");
         product.methodSame();
         product.methodDiff();
-        product=Product.factoryMethod("b");
+        product = Product.factoryMethod("b");
         product.methodSame();
         product.methodDiff();
     }

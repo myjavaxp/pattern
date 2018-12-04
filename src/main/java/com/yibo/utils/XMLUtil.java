@@ -15,29 +15,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XMLUtil {
-    public static Object getBean(String beanName) throws Exception {
-        Document document = getDocument();
-        Element element = document.getElementById(beanName);
-        if (null == element) {
-            throw new NoSuchBeanException("没有名字为:" + beanName + "的类");
+    public static Object getBean(String beanName) {
+        Class<?> c = getClass(beanName);
+        try {
+            return c.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new NoSuchBeanException("类:" + beanName + " 的对象生成失败");
         }
-        String name = element.getAttribute("class");
-        Class<?> c = Class.forName(name);
-        return c.newInstance();
     }
 
-    public static <T> T getBean(String beanName, Class<T> clazz) throws Exception {
-        Document document = getDocument();
-        Element element = document.getElementById(beanName);
-        if (null == element) {
-            throw new NoSuchBeanException("没有名字为:" + beanName + "的类");
-        }
-        String name = element.getAttribute("class");
-        Class<?> c = Class.forName(name);
+    public static <T> T getBean(String beanName, Class<T> clazz) {
+        Class<?> c = getClass(beanName);
         if (clazz == c) {
-            return clazz.newInstance();
+            try {
+                return clazz.newInstance();
+            } catch (InstantiationException | IllegalAccessException e) {
+                throw new NoSuchBeanException("类:" + beanName + " 的对象生成失败");
+            }
         }
-        throw new NoSuchBeanException("没有类型为:" + clazz.getSimpleName() + "的类");
+        throw new NoSuchBeanException("没有类型为:" + clazz.getSimpleName() + " 的类");
     }
 
     private static Document getDocument() throws ParserConfigurationException, SAXException, IOException {
@@ -46,8 +42,13 @@ public class XMLUtil {
         return documentBuilder.parse(new File("/Users/yibo/IdeaProjects/pattern/src/main/resources/config.xml"));
     }
 
-    public static List<String> getBeanNameList() throws Exception {
-        Document document = getDocument();
+    public static List<String> getBeanNameList() {
+        Document document;
+        try {
+            document = getDocument();
+        } catch (ParserConfigurationException | IOException | SAXException e) {
+            throw new RuntimeException("配置文件解析失败");
+        }
         NodeList nodeList = document.getElementsByTagName("bean");
         List<String> beanNameList = new ArrayList<>();
         int length = nodeList.getLength();
@@ -56,5 +57,24 @@ public class XMLUtil {
             beanNameList.add(bean);
         }
         return beanNameList;
+    }
+
+    private static Class<?> getClass(String beanName) {
+        Document document;
+        try {
+            document = getDocument();
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            throw new RuntimeException("配置文件解析失败");
+        }
+        Element element = document.getElementById(beanName);
+        if (null == element) {
+            throw new NoSuchBeanException("没有名字为:" + beanName + "的类");
+        }
+        String name = element.getAttribute("class");
+        try {
+            return Class.forName(name);
+        } catch (ClassNotFoundException e) {
+            throw new NoSuchBeanException("没有名字为:" + beanName + "的类");
+        }
     }
 }

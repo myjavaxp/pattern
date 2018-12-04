@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class BuilderTest {
     @Test
-    public void testBuilder() throws Exception {
+    public void testBuilder() {
         ActorBuilder actorBuilder = XMLUtil.getBean("angelBuilder", AngelBuilder.class);
         ActorController actorController = new ActorController();
         Actor actor = actorController.construct(actorBuilder);
@@ -17,7 +17,7 @@ public class BuilderTest {
     }
 
     @Test
-    public void testEvilBuilder() throws Exception {
+    public void testEvilBuilder() {
         ActorBuilder actorBuilder = (ActorBuilder) XMLUtil.getBean("devilBuilder");
         ActorController actorController = new ActorController();
         Actor actor = actorController.construct(actorBuilder);

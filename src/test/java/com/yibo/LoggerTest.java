@@ -27,8 +27,9 @@ public class LoggerTest {
             logger.writeLog();
         }
     }
+
     @Test
-    public void testFactory() throws Exception {
+    public void testFactory() {
         LoggerFactory loggerFactory = (LoggerFactory) XMLUtil.getBean("databaseLoggerFactory");
         if (loggerFactory != null) {
             loggerFactory.writeLog();

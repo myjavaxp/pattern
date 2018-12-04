@@ -6,8 +6,8 @@ import org.junit.Test;
 
 public class FrameworkTest {
     @Test
-    public void testFrameWork(){
-        Container container=new ComponentContainer();
+    public void testFrameWork() {
+        Container container = new ComponentContainer();
         container.getIndexedClass("com.yibo");
     }
 }

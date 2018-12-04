@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class AbstractFactoryTest {
     @Test
-    public void testAbstractFactory() throws Exception {
+    public void testAbstractFactory() {
         SkinFactory skinFactory = (SummerSkinFactory) XMLUtil.getBean("summerSkinFactory");
         Button button = skinFactory.getButton();
         ComboBox comboBox = skinFactory.getComboBox();
@@ -21,7 +21,7 @@ public class AbstractFactoryTest {
     }
 
     @Test
-    public void testXMLUtil() throws Exception {
+    public void testXMLUtil() {
         XMLUtil.getBeanNameList().forEach(System.out::println);
     }
 }

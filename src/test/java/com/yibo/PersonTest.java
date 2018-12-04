@@ -61,15 +61,15 @@ public class PersonTest {
         int a = converter.convert("123");
         System.out.println(a);
         System.out.println("------");
-        Consumer<Person> greeter=(p)-> System.out.println("Hello, "+p.getName());
-        greeter.accept(new Person("Mary","12"));
+        Consumer<Person> greeter = (p) -> System.out.println("Hello, " + p.getName());
+        greeter.accept(new Person("Mary", "12"));
         System.out.println("------");
-        Supplier<Person> personSupplier=Person::new;
+        Supplier<Person> personSupplier = Person::new;
         System.out.println(personSupplier.get());
         System.out.println("------");
-        Optional<String> optional=Optional.of("Yibo");
+        Optional<String> optional = Optional.of("Yibo");
         System.out.println(optional.get());
         System.out.println(optional.orElse("fallback"));
-        optional.ifPresent(p-> System.out.println(p.charAt(0)));
+        optional.ifPresent(p -> System.out.println(p.charAt(0)));
     }
 }
