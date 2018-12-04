@@ -1,8 +1,7 @@
 package com.yibo.clone;
 
-import com.google.common.base.MoreObjects;
-
 import java.io.Serializable;
+import java.util.StringJoiner;
 
 public class Attachment implements Serializable {
     private static final long serialVersionUID = -1734954440284466589L;
@@ -22,8 +21,8 @@ public class Attachment implements Serializable {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("name", name)
+        return new StringJoiner(", ", Attachment.class.getSimpleName() + "[", "]")
+                .add("name='" + name + "'")
                 .toString();
     }
 }

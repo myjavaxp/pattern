@@ -1,8 +1,7 @@
 package com.yibo.buiderpattern;
 
-import com.google.common.base.MoreObjects;
-
 import java.io.Serializable;
+import java.util.StringJoiner;
 
 public class Actor implements Serializable {
     private static final long serialVersionUID = -3242317772715093964L;
@@ -54,12 +53,12 @@ public class Actor implements Serializable {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("type", type)
-                .add("sex", sex)
-                .add("face", face)
-                .add("costume", costume)
-                .add("hairstyle", hairstyle)
+        return new StringJoiner(", ", Actor.class.getSimpleName() + "[", "]")
+                .add("type='" + type + "'")
+                .add("sex='" + sex + "'")
+                .add("face='" + face + "'")
+                .add("costume='" + costume + "'")
+                .add("hairstyle='" + hairstyle + "'")
                 .toString();
     }
 }
