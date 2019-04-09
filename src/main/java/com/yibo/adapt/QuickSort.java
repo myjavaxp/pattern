@@ -1,7 +1,7 @@
 package com.yibo.adapt;
 
-public class QuickSort {
-    public int[] quickSort(int[] array) {
+class QuickSort {
+    int[] quickSort(int[] array) {
         sort(array, 0, array.length - 1);
         return array;
     }

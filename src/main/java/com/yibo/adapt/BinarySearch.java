@@ -1,7 +1,7 @@
 package com.yibo.adapt;
 
-public class BinarySearch {
-    public int binarySearch(int array[], int key) {
+class BinarySearch {
+    int binarySearch(int[] array, int key) {
         int low = 0;
         int high = array.length - 1;
         while (low <= high) {

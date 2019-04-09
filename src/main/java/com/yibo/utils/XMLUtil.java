@@ -18,8 +18,8 @@ public class XMLUtil {
     public static Object getBean(String beanName) {
         Class<?> c = getClass(beanName);
         try {
-            return c.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
+            return c.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
             throw new NoSuchBeanException("类:" + beanName + " 的对象生成失败");
         }
     }
@@ -28,8 +28,8 @@ public class XMLUtil {
         Class<?> c = getClass(beanName);
         if (clazz == c) {
             try {
-                return clazz.newInstance();
-            } catch (InstantiationException | IllegalAccessException e) {
+                return clazz.getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
                 throw new NoSuchBeanException("类:" + beanName + " 的对象生成失败");
             }
         }
@@ -39,7 +39,7 @@ public class XMLUtil {
     private static Document getDocument() throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-        return documentBuilder.parse(new File("/Users/yibo/IdeaProjects/pattern/src/main/resources/config.xml"));
+        return documentBuilder.parse(new File("C:\\Users\\Bxu22\\IdeaProjects\\pattern\\src\\main\\resources\\config.xml"));
     }
 
     public static List<String> getBeanNameList() {
