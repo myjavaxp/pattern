@@ -1,19 +1,20 @@
 package com.yibo;
 
+import com.yibo.adapt.OperationAdapter;
 import com.yibo.adapt.ScoreOperation;
 import com.yibo.utils.XMLUtil;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class AdapterTest {
     @Test
     public void testAdapter() {
-        ScoreOperation scoreOperation = (ScoreOperation) XMLUtil.getBean("operationAdapter");
+        ScoreOperation scoreOperation = XMLUtil.getBean("operationAdapter", OperationAdapter.class);
         int[] scores = {112, 42332, 11, 432, 43, 765, 87, 876};
         System.out.println("成绩排序：");
         int[] result = scoreOperation.sort(scores);
-        for (int i : result) {
-            System.out.print(i + ",");
-        }
+        System.out.println(Arrays.toString(result));
         System.out.println();
         System.out.println("查找成绩11：");
         int score = scoreOperation.search(result, 11);
