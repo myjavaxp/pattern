@@ -11,11 +11,11 @@
     <config>
         <bean id="fileLoggerFactory" class="com.yibo.factory.FileLoggerFactory"/>
         <bean id="databaseLoggerFactory" class="com.yibo.factory.DatabaseLoggerFactory"/>
-        <bean id="springSkinFactory" class="com.yibo.abstractfactory.impl.SpringSkinFactory"/>
-        <bean id="angelBuilder" class="com.yibo.buiderpattern.AngelBuilder"/>
-        <bean id="devilBuilder" class="com.yibo.buiderpattern.DevilBuilder"/>
-        <bean id="heroBuilder" class="com.yibo.buiderpattern.HeroBuilder"/>
-        <bean id="summerSkinFactory" class="com.yibo.abstractfactory.impl.SummerSkinFactory"/>
+        <bean id="springSkinFactory" class="com.yibo.factory.abstractFactory.impl.SpringSkinFactory"/>
+        <bean id="angelBuilder" class="com.yibo.buiderPattern.AngelBuilder"/>
+        <bean id="devilBuilder" class="com.yibo.buiderPattern.DevilBuilder"/>
+        <bean id="heroBuilder" class="com.yibo.buiderPattern.HeroBuilder"/>
+        <bean id="summerSkinFactory" class="com.yibo.factory.abstractFactory.impl.SummerSkinFactory"/>
         <bean id="operationAdapter" class="com.yibo.adapt.OperationAdapter"/>
     </config>
 </configuration>
